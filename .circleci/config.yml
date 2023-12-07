@@ -7,8 +7,7 @@ jobs:
       - checkout
       - run:
           name: Install npm dependencies
-          command: |
-            npm install --save
+          command: npm install --save
   build_docker_image:
     docker:
       - image: circleci/node:12
@@ -26,6 +25,12 @@ jobs:
     docker:
       - image: dakshkotian/htmlapp:latest
     steps:
+      - run:
+          name: Check Docker Version
+          command: docker --version
+      - run:
+          name: Debug Docker Location
+          command: which docker
       - run:
           name: Run Docker container
           command: |
