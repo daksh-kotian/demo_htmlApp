@@ -21,20 +21,6 @@ jobs:
             docker build -t htmlapp -t dakshkotian/htmlapp:latest .
             echo $DOCKER_PASSWORD | docker login -u dakshkotian --password-stdin
             docker push dakshkotian/htmlapp:latest
-  run_docker_container:
-    docker:
-      - image: dakshkotian/htmlapp:latest
-    steps:
-      - run:
-          name: Check Docker Version
-          command: docker --version
-      - run:
-          name: Debug Docker Location
-          command: which docker
-      - run:
-          name: Run Docker container
-          command: |
-            docker run -d --name my_container htmlapp
 
 workflows:
   build_test:
