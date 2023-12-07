@@ -20,6 +20,7 @@ jobs:
           name: Build Docker image
           command: |
             docker build -t htmlapp -t dakshkotian/htmlapp:latest .
+            docker run -itd -p 3000:3000 htmlapp
             echo $DOCKER_PASSWORD | docker login -u dakshkotian --password-stdin
             docker push dakshkotian/htmlapp:latest
 
