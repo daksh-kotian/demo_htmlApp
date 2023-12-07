@@ -19,17 +19,17 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t htmlApp -t dakshkotian/htmlApp:latest .
+            docker build -t htmlapp -t dakshkotian/htmlapp:latest .
             echo $DOCKER_PASSWORD | docker login -u dakshkotian --password-stdin
-            docker push dakshkotian/htmlApp:latest
+            docker push dakshkotian/htmlapp:latest
   run_docker_container:
     docker:
-      - image: dakshkotian/htmlApp:latest
+      - image: dakshkotian/htmlapp:latest
     steps:
       - run:
           name: Run Docker container
           command: |
-            docker run -d --name my_container -p 8080:80 dakshkotian/htmlApp:latest
+            docker run -d --name my_container -p 8080:80 dakshkotian/htmlapp:latest
 
 workflows:
   build_test:
