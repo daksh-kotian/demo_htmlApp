@@ -21,7 +21,7 @@ jobs:
           command: |
             docker build -t htmlapp -t dakshkotian/htmlapp:latest .
             echo $DOCKER_PASSWORD | docker login -u dakshkotian --password-stdin
-            docker push dakshkotian/htmlApp:latest
+            docker push dakshkotian/htmlapp:latest
 
 workflows:
   build_test:
