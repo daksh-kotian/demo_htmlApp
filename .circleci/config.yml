@@ -29,7 +29,7 @@ jobs:
       - run:
           name: Run Docker container
           command: |
-            docker run -d --name my_container -p 8080:80 dakshkotian/htmlapp:latest
+            docker run -d --name my_container htmlapp
 
 workflows:
   build_test:
